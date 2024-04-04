@@ -20,7 +20,7 @@ class BMICalculator extends StatelessWidget {
             fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
-          bodyMedium: TextStyle(
+          bodySmall: TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
           ),

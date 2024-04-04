@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'widgets/my_card.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'custom_widgets.dart';
+
+const activeCardColor = Color(0xFF1D1E33);
+const inactiveCardColor = Null;
 
 class InputPage extends StatefulWidget {
   const InputPage({super.key});
@@ -21,29 +25,45 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: [
                 Expanded(
-                  child: MyCard(),
+                  child: MyCard(
+                    child: Gender(
+                      icon: FontAwesomeIcons.mars,
+                      title: 'MALE',
+                    ),
+                    color: activeCardColor,
+                  ),
                 ),
                 Expanded(
-                  child: MyCard(),
+                  child: MyCard(
+                      child: Gender(
+                        icon: FontAwesomeIcons.venus,
+                        title: 'FEMALE',
+                      ),
+                      color: activeCardColor),
                 ),
               ],
             ),
           ),
           Expanded(
-            child: MyCard(),
+            child: MyCard(color: activeCardColor),
           ),
           Expanded(
             child: Row(
               children: [
                 Expanded(
-                  child: MyCard(),
+                  child: MyCard(color: activeCardColor),
                 ),
                 Expanded(
-                  child: MyCard(),
+                  child: MyCard(color: activeCardColor),
                 ),
               ],
             ),
           ),
+          Container(
+            height: 64,
+            margin: EdgeInsets.only(top: 15),
+            color: Color(0xFFEB1555),
+          )
         ],
       ),
     );
