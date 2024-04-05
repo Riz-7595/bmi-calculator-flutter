@@ -3,7 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'custom_widgets.dart';
 
 const activeCardColor = Color(0xFF1D1E33);
-const inactiveCardColor = Null;
+const inactiveCardColor = Color(0xFF111328);
 
 class InputPage extends StatefulWidget {
   const InputPage({super.key});
@@ -13,6 +13,9 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+  Color maleCardColor = inactiveCardColor;
+  Color femaleCardColor = inactiveCardColor;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,21 +28,37 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: [
                 Expanded(
-                  child: MyCard(
-                    child: Gender(
-                      icon: FontAwesomeIcons.mars,
-                      title: 'MALE',
+                  child: GestureDetector(
+                    onTap: (){
+                      setState(() {
+                        maleCardColor = activeCardColor;
+                        femaleCardColor = inactiveCardColor;
+                      });
+                    },
+                    child: MyCard(
+                      child: Gender(
+                        icon: FontAwesomeIcons.mars,
+                        title: 'MALE',
+                      ),
+                      color: maleCardColor,
                     ),
-                    color: activeCardColor,
                   ),
                 ),
                 Expanded(
-                  child: MyCard(
-                      child: Gender(
-                        icon: FontAwesomeIcons.venus,
-                        title: 'FEMALE',
-                      ),
-                      color: activeCardColor),
+                  child: GestureDetector(
+                    onTap: (){
+                      setState(() {
+                        femaleCardColor = activeCardColor;
+                        maleCardColor = inactiveCardColor;
+                      });
+                    },
+                    child: MyCard(
+                        child: Gender(
+                          icon: FontAwesomeIcons.venus,
+                          title: 'FEMALE',
+                        ),
+                        color: femaleCardColor),
+                  ),
                 ),
               ],
             ),
