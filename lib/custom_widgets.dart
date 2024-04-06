@@ -1,30 +1,35 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'constants.dart';
 
 class MyCard extends StatelessWidget {
   Widget? child;
   Color? color;
+  Function? onPress;
 
-  MyCard({this.child, this.color});
+  MyCard({this.child, this.color, this.onPress});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(15),
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.circular(12),
+    return GestureDetector(
+      onTap: onPress as void Function()?,
+      child: Container(
+        margin: EdgeInsets.all(15),
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: child,
       ),
-      child: child,
     );
   }
 }
 
-class Gender extends StatelessWidget {
+class GenderCard extends StatelessWidget {
   IconData? icon;
   String? title;
 
-  Gender({this.icon, this.title});
+  GenderCard({this.icon, this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -38,10 +43,7 @@ class Gender extends StatelessWidget {
         SizedBox(height: 10),
         Text(
           title!,
-          style: TextStyle(
-            fontSize: 18,
-            color: Color(0xFF8D8E98),
-          ),
+          style: kLabelTextStyle,
         ),
       ],
     );
