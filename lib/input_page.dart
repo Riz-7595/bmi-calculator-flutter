@@ -1,5 +1,8 @@
+import 'package:bmi_calculator/result_page.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'result_page.dart';
 import 'custom_widgets.dart';
 import 'constants.dart';
 
@@ -122,18 +125,22 @@ class _InputPageState extends State<InputPage> {
                           children: [
                             RoundIconButton(
                               onTap: () {
-                                setState(() {
-                                  weight--;
-                                });
+                                setState(
+                                  () {
+                                    weight--;
+                                  },
+                                );
                               },
                               icon: FontAwesomeIcons.minus,
                             ),
                             SizedBox(width: 12),
                             RoundIconButton(
                               onTap: () {
-                                setState(() {
-                                  weight++;
-                                });
+                                setState(
+                                  () {
+                                    weight++;
+                                  },
+                                );
                               },
                               icon: FontAwesomeIcons.plus,
                             ),
@@ -162,18 +169,22 @@ class _InputPageState extends State<InputPage> {
                           children: [
                             RoundIconButton(
                               onTap: () {
-                                setState(() {
-                                  age--;
-                                });
+                                setState(
+                                  () {
+                                    age--;
+                                  },
+                                );
                               },
                               icon: FontAwesomeIcons.minus,
                             ),
                             SizedBox(width: 12),
                             RoundIconButton(
                               onTap: () {
-                                setState(() {
-                                  age++;
-                                });
+                                setState(
+                                  () {
+                                    age++;
+                                  },
+                                );
                               },
                               icon: FontAwesomeIcons.plus,
                             ),
@@ -186,10 +197,31 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Container(
-            height: 64,
-            margin: EdgeInsets.only(top: 15),
-            color: kSecondaryColor,
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return ResultPage();
+                  },
+                ),
+              );
+            },
+            child: Container(
+              child: Center(
+                child: Text(
+                  "Calculate",
+                  style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              height: 64,
+              margin: EdgeInsets.only(top: 15),
+              color: kSecondaryColor,
+            ),
           )
         ],
       ),
