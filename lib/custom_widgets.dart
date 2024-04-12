@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'constants.dart';
 
@@ -7,14 +6,14 @@ class MyCard extends StatelessWidget {
   Color? color;
   Function? onPress;
 
-  MyCard({this.child, this.color, this.onPress});
+  MyCard({super.key, this.child, this.color, this.onPress});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onPress as void Function()?,
       child: Container(
-        margin: EdgeInsets.all(15),
+        margin: const EdgeInsets.all(15),
         decoration: BoxDecoration(
           color: color,
           borderRadius: BorderRadius.circular(12),
@@ -29,7 +28,7 @@ class GenderCard extends StatelessWidget {
   IconData? icon;
   String? title;
 
-  GenderCard({this.icon, this.title});
+  GenderCard({super.key, this.icon, this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +39,7 @@ class GenderCard extends StatelessWidget {
           icon,
           size: 80,
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         Text(
           title!,
           style: kLabelTextStyle,
@@ -51,7 +50,7 @@ class GenderCard extends StatelessWidget {
 }
 
 class RoundIconButton extends StatelessWidget {
-  RoundIconButton({super.key, required this.onTap, this.icon});
+  const RoundIconButton({super.key, required this.onTap, this.icon});
 
   final Function onTap;
   final IconData? icon;
@@ -60,10 +59,10 @@ class RoundIconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return RawMaterialButton(
       onPressed: onTap as void Function()?,
-      child: Icon(icon),
-      constraints: BoxConstraints.tightFor(width: 56, height: 56),
-      shape: CircleBorder(),
+      constraints: const BoxConstraints.tightFor(width: 56, height: 56),
+      shape: const CircleBorder(),
       fillColor: kInactiveCardColor,
+      child: Icon(icon),
     );
   }
 }

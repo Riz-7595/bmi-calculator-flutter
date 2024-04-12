@@ -1,8 +1,6 @@
 import 'package:bmi_calculator/result_page.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'result_page.dart';
 import 'custom_widgets.dart';
 import 'constants.dart';
 
@@ -40,13 +38,13 @@ class _InputPageState extends State<InputPage> {
                         gender = Gender.male;
                       });
                     },
+                    color: gender == Gender.male
+                        ? kActiveCardColor
+                        : kInactiveCardColor,
                     child: GenderCard(
                       icon: FontAwesomeIcons.mars,
                       title: 'MALE',
                     ),
-                    color: gender == Gender.male
-                        ? kActiveCardColor
-                        : kInactiveCardColor,
                   ),
                 ),
                 Expanded(
@@ -56,13 +54,13 @@ class _InputPageState extends State<InputPage> {
                         gender = Gender.female;
                       });
                     },
+                    color: gender == Gender.female
+                        ? kActiveCardColor
+                        : kInactiveCardColor,
                     child: GenderCard(
                       icon: FontAwesomeIcons.venus,
                       title: 'FEMALE',
                     ),
-                    color: gender == Gender.female
-                        ? kActiveCardColor
-                        : kInactiveCardColor,
                   ),
                 ),
               ],
@@ -86,7 +84,7 @@ class _InputPageState extends State<InputPage> {
                     textBaseline: TextBaseline.alphabetic,
                     children: [
                       Text(height.toString(), style: kNumTextStyle),
-                      Text(" cm", style: kLabelTextStyle),
+                      const Text(" cm", style: kLabelTextStyle),
                     ],
                   ),
                   Slider(
@@ -112,7 +110,7 @@ class _InputPageState extends State<InputPage> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
+                        const Text(
                           "WEIGHT",
                           style: kLabelTextStyle,
                         ),
@@ -133,7 +131,7 @@ class _InputPageState extends State<InputPage> {
                               },
                               icon: FontAwesomeIcons.minus,
                             ),
-                            SizedBox(width: 12),
+                            const SizedBox(width: 12),
                             RoundIconButton(
                               onTap: () {
                                 setState(
@@ -156,7 +154,7 @@ class _InputPageState extends State<InputPage> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
+                        const Text(
                           "AGE",
                           style: kLabelTextStyle,
                         ),
@@ -177,7 +175,7 @@ class _InputPageState extends State<InputPage> {
                               },
                               icon: FontAwesomeIcons.minus,
                             ),
-                            SizedBox(width: 12),
+                            const SizedBox(width: 12),
                             RoundIconButton(
                               onTap: () {
                                 setState(
@@ -203,24 +201,25 @@ class _InputPageState extends State<InputPage> {
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return ResultPage();
+                    return const ResultPage();
                   },
                 ),
               );
             },
             child: Container(
-              child: Center(
+              padding: const EdgeInsets.only(bottom: 2),
+              height: 64,
+              margin: const EdgeInsets.only(top: 15),
+              color: kSecondaryColor,
+              child: const Center(
                 child: Text(
-                  "Calculate",
+                  "CALCULATE",
                   style: TextStyle(
-                    fontSize: 30,
+                    fontSize: 27,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
-              height: 64,
-              margin: EdgeInsets.only(top: 15),
-              color: kSecondaryColor,
             ),
           )
         ],

@@ -2,7 +2,7 @@ import 'package:bmi_calculator/constants.dart';
 import 'package:flutter/material.dart';
 import 'input_page.dart';
 
-void main() => runApp(BMICalculator());
+void main() => runApp(const BMICalculator());
 
 class BMICalculator extends StatelessWidget {
   const BMICalculator({super.key});
@@ -11,12 +11,12 @@ class BMICalculator extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: Color(0xFF0A0E21),
-        appBarTheme: AppBarTheme(
+        scaffoldBackgroundColor: const Color(0xFF0A0E21),
+        appBarTheme: const AppBarTheme(
           color: Color(0xFF0A0E21),
           centerTitle: true,
         ),
-        sliderTheme: SliderThemeData(
+        sliderTheme: const SliderThemeData(
           activeTrackColor: Colors.white,
           inactiveTrackColor: Color(0xFF8D8E98),
           thumbColor: kSecondaryColor,
@@ -24,7 +24,7 @@ class BMICalculator extends StatelessWidget {
           thumbShape: RoundSliderThumbShape(enabledThumbRadius: 15),
           overlayShape: RoundSliderOverlayShape(overlayRadius: 30),
         ),
-        textTheme: TextTheme(
+        textTheme: const TextTheme(
           titleLarge: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
@@ -35,7 +35,7 @@ class BMICalculator extends StatelessWidget {
           ),
         ),
       ),
-      home: InputPage(),
+      home: const InputPage(),
     );
   }
 }
