@@ -1,6 +1,7 @@
 import 'package:bmi_calculator/result_page.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'brain.dart';
 import 'custom_widgets.dart';
 import 'constants.dart';
 
@@ -197,18 +198,19 @@ class _InputPageState extends State<InputPage> {
           ),
           GestureDetector(
             onTap: () {
+              Brain brain = Brain(height: height as int, weight: weight as int);
               Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return const ResultPage();
+                    return ResultPage(brain: brain);
                   },
                 ),
               );
             },
             child: Container(
               padding: const EdgeInsets.only(bottom: 2),
-              height: 64,
+              height: 80,
               margin: const EdgeInsets.only(top: 15),
               color: kSecondaryColor,
               child: const Center(

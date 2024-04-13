@@ -36,6 +36,7 @@ class BMICalculator extends StatelessWidget {
         ),
       ),
       home: const InputPage(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }

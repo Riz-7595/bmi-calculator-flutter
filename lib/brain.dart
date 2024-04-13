@@ -16,22 +16,20 @@ class Brain {
   String bmiText() {
     if (_bmi < 18.5) {
       return "Underweight";
-    } else if (_bmi < 25)
+    } else if (_bmi < 25) {
       return "Normal";
-    else if (_bmi < 30)
+    } else {
       return "Overweight";
-    else
-      return "Obese!";
+    }
   }
 
   String bmiDesc() {
     if (_bmi < 18.5) {
       return "Your body weight lower than normal. Try to eat more!";
-    } else if (_bmi < 25)
-      return "You have a normal body weight. Good job!";
-    else if (_bmi < 30)
+    } else if (_bmi < 25) {
+      return "You have a normal body weight. Good job keep it up!";
+    } else {
       return "Your body weight is higher than normal. Try to exercise more!";
-    else
-      return "If you don't lose your body weight, you'll die soon!";
+    }
   }
 }
