@@ -42,40 +42,29 @@ class ResultPage extends StatelessWidget {
                   ),
                   Text(
                     brain.bmiResult(),
-                    style:
-                        const TextStyle(fontSize: 100, fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    brain.bmiDesc(),
-                    textAlign: TextAlign.center,
                     style: const TextStyle(
-                      fontSize: 22,
-                      color: Color(0xFFD7D5DC),
+                        fontSize: 100, fontWeight: FontWeight.bold),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: Text(
+                      brain.bmiDesc(),
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        fontSize: 20,
+                        color: Color(0xFFD7D5DC),
+                      ),
                     ),
                   ),
                 ],
               ),
             ),
           ),
-          GestureDetector(
-            onTap: () {
+          BottomBar(
+            text: "RE-CALCULATE",
+            onPress: () {
               Navigator.pop(context);
             },
-            child: Container(
-              padding: const EdgeInsets.only(bottom: 2),
-              height: 80,
-              margin: const EdgeInsets.only(top: 15),
-              color: kSecondaryColor,
-              child: const Center(
-                child: Text(
-                  "RE-CALCULATE",
-                  style: TextStyle(
-                    fontSize: 27,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ),
           ),
         ],
       ),

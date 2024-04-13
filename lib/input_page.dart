@@ -42,7 +42,7 @@ class _InputPageState extends State<InputPage> {
                     color: gender == Gender.male
                         ? kActiveCardColor
                         : kInactiveCardColor,
-                    child: GenderCard(
+                    child: const GenderCard(
                       icon: FontAwesomeIcons.mars,
                       title: 'MALE',
                     ),
@@ -58,7 +58,7 @@ class _InputPageState extends State<InputPage> {
                     color: gender == Gender.female
                         ? kActiveCardColor
                         : kInactiveCardColor,
-                    child: GenderCard(
+                    child: const GenderCard(
                       icon: FontAwesomeIcons.venus,
                       title: 'FEMALE',
                     ),
@@ -196,8 +196,9 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          GestureDetector(
-            onTap: () {
+          BottomBar(
+            text: "CALCULATE",
+            onPress: () {
               Brain brain = Brain(height: height as int, weight: weight as int);
               Navigator.push(
                 context,
@@ -208,22 +209,7 @@ class _InputPageState extends State<InputPage> {
                 ),
               );
             },
-            child: Container(
-              padding: const EdgeInsets.only(bottom: 2),
-              height: 80,
-              margin: const EdgeInsets.only(top: 15),
-              color: kSecondaryColor,
-              child: const Center(
-                child: Text(
-                  "CALCULATE",
-                  style: TextStyle(
-                    fontSize: 27,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ),
-          )
+          ),
         ],
       ),
     );

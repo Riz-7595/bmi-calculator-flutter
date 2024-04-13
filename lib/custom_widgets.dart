@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'constants.dart';
 
 class MyCard extends StatelessWidget {
-  Widget? child;
-  Color? color;
-  Function? onPress;
+  const MyCard({super.key, this.child, this.color, this.onPress});
 
-  MyCard({super.key, this.child, this.color, this.onPress});
+  final Widget? child;
+  final Color? color;
+  final Function? onPress;
 
   @override
   Widget build(BuildContext context) {
@@ -25,10 +25,10 @@ class MyCard extends StatelessWidget {
 }
 
 class GenderCard extends StatelessWidget {
-  IconData? icon;
-  String? title;
+  const GenderCard({super.key, required this.icon, required this.title});
 
-  GenderCard({super.key, this.icon, this.title});
+  final IconData icon;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,7 @@ class GenderCard extends StatelessWidget {
         ),
         const SizedBox(height: 10),
         Text(
-          title!,
+          title,
           style: kLabelTextStyle,
         ),
       ],
@@ -63,6 +63,35 @@ class RoundIconButton extends StatelessWidget {
       shape: const CircleBorder(),
       fillColor: kInactiveCardColor,
       child: Icon(icon),
+    );
+  }
+}
+
+class BottomBar extends StatelessWidget {
+  const BottomBar({super.key, required this.text, required this.onPress});
+
+  final String text;
+  final Function onPress;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onPress as void Function()?,
+      child: Container(
+        padding: const EdgeInsets.only(bottom: 2),
+        height: 80,
+        margin: const EdgeInsets.only(top: 15),
+        color: kSecondaryColor,
+        child: Center(
+          child: Text(
+            text,
+            style: const TextStyle(
+              fontSize: 27,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
