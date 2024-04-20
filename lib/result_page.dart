@@ -22,7 +22,10 @@ class ResultPage extends StatelessWidget {
             child: Center(
               child: Text(
                 "Result",
-                style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    fontSize: 32,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white),
               ),
             ),
           ),
@@ -43,7 +46,9 @@ class ResultPage extends StatelessWidget {
                   Text(
                     brain.bmiResult(),
                     style: const TextStyle(
-                        fontSize: 100, fontWeight: FontWeight.bold),
+                        fontSize: 100,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),

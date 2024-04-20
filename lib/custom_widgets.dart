@@ -59,7 +59,7 @@ class RoundIconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return RawMaterialButton(
       onPressed: onTap as void Function()?,
-      constraints: const BoxConstraints.tightFor(width: 56, height: 56),
+      constraints: const BoxConstraints.tightFor(width: 48, height: 48),
       shape: const CircleBorder(),
       fillColor: kInactiveCardColor,
       child: Icon(icon),
@@ -86,9 +86,7 @@ class BottomBar extends StatelessWidget {
           child: Text(
             text,
             style: const TextStyle(
-              fontSize: 27,
-              fontWeight: FontWeight.bold,
-            ),
+                fontSize: 27, fontWeight: FontWeight.bold, color: Colors.white),
           ),
         ),
       ),

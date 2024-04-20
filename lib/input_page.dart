@@ -1,5 +1,7 @@
 import 'package:bmi_calculator/result_page.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'brain.dart';
 import 'custom_widgets.dart';
@@ -79,25 +81,29 @@ class _InputPageState extends State<InputPage> {
                       height: 2,
                     ),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.baseline,
-                    textBaseline: TextBaseline.alphabetic,
-                    children: [
-                      Text(height.toString(), style: kNumTextStyle),
-                      const Text(" cm", style: kLabelTextStyle),
-                    ],
+                  Expanded(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.baseline,
+                      textBaseline: TextBaseline.alphabetic,
+                      children: [
+                        Text(height.toString(), style: kNumTextStyle),
+                        const Text(" cm", style: kLabelTextStyle),
+                      ],
+                    ),
                   ),
-                  Slider(
-                      value: height.toDouble(),
-                      min: 100,
-                      max: 200,
-                      divisions: 100,
-                      onChanged: (double value) {
-                        setState(() {
-                          height = value.round();
-                        });
-                      })
+                  Expanded(
+                    child: Slider(
+                        value: height.toDouble(),
+                        min: 100,
+                        max: 200,
+                        divisions: 100,
+                        onChanged: (double value) {
+                          setState(() {
+                            height = value.round();
+                          });
+                        }),
+                  )
                 ],
               ),
             ),
